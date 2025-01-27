@@ -1,4 +1,4 @@
-package ru.my.vacancysearch.ui.theme
+package ru.my.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

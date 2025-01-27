@@ -1,4 +1,4 @@
-package ru.my.vacancysearch.ui.theme
+package ru.my.theme
 
 import androidx.compose.ui.graphics.Color
 

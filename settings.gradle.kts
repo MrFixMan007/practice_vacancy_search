@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Vacancy search"
 include(":app")
- 
+include(":core")
+include(":core:theme")
+include(":core:uiCommon")
