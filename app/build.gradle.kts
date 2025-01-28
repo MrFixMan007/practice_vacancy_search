@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -62,4 +63,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.ui.tooling)
     implementation(libs.androidx.material3)
+
+    // dagger
+    implementation(libs.dagger.android)
+    ksp(libs.dagger.compiler)
 }
