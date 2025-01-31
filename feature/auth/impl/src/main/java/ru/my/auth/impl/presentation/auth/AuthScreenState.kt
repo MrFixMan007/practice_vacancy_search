@@ -1,4 +1,4 @@
-package ru.my.auth.impl.presentation.authscreen
+package ru.my.auth.impl.presentation.auth
 
 import androidx.compose.runtime.Immutable
 import ru.my.base.screenmodel.model.UIState

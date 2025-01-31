@@ -8,4 +8,6 @@
     <string name="employees_search_title">Поиск сотрудников</string>
     <string name="employees_search_text">Размещение вакансий и доступ к базе резюме</string>
     <string name="employees_search_button_label">Я ищу сотрудников</string>
+    <string name="code_input_title">Отправили код на %1$s</string>
+    <string name="code_input_text">Напишите его, чтобы подтвердить, что это вы, а не кто-то другой входит в личный кабинет</string>
 </resources>

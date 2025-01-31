@@ -1,16 +1,19 @@
 package ru.my.uicommon.components
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.input.KeyboardType
@@ -28,26 +31,30 @@ fun TextInputField(
     textColor: Color,
     keyboardType: KeyboardType = KeyboardType.Text,
 ) {
-    BasicTextField(
-        modifier = modifier,
-        value = text,
-        onValueChange = onTextChanged,
-        keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
-        maxLines = 1,
-        singleLine = true,
-        cursorBrush = SolidColor(Color(0xFF2B7EFE)),
+    val focusRequester = remember { FocusRequester() }
+
+    Box(
+        modifier = modifier.clickable(
+            onClick = { focusRequester.requestFocus() },
+            interactionSource = remember { MutableInteractionSource() },
+            indication = null
+        )
     ) {
-        Box(
-            modifier = Modifier.padding(horizontal = 8.dp)
-        ) {
-            Text(
-                modifier = Modifier.align(Alignment.CenterStart),
-                text = text,
-                style = LocalTypography.current.text1,
-                color = textColor
-            )
-        }
+        BasicTextField(
+            modifier = Modifier
+                .align(Alignment.CenterStart)
+                .padding(horizontal = 8.dp)
+                .focusRequester(focusRequester),
+            value = text,
+            onValueChange = onTextChanged,
+            keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
+            maxLines = 1,
+            singleLine = true,
+            cursorBrush = SolidColor(Color(0xFF2B7EFE)),
+            textStyle = LocalTypography.current.text1.copy(color = textColor)
+        )
     }
+
 }
 
 @Composable

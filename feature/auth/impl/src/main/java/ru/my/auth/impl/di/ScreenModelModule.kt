@@ -7,7 +7,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.multibindings.IntoMap
-import ru.my.auth.impl.presentation.authscreen.AuthScreenModel
+import ru.my.auth.impl.presentation.auth.AuthScreenModel
+import ru.my.auth.impl.presentation.codeinput.CodeInputScreenModel
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -17,4 +18,9 @@ abstract class ScreenModelModule {
     @IntoMap
     @ScreenModelKey(AuthScreenModel::class)
     abstract fun bindAuthScreenModel(authScreenModel: AuthScreenModel): ScreenModel
+
+    @Binds
+    @IntoMap
+    @ScreenModelKey(CodeInputScreenModel::class)
+    abstract fun bindCodeInputScreenModel(codeInputScreenModel: CodeInputScreenModel): ScreenModel
 }
