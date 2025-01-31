@@ -2,7 +2,7 @@ package ru.my.theme
 
 import androidx.compose.ui.graphics.Color
 
-fun darkColors() = CustomColors(
+internal val darkColors = CustomColors(
     basicColors = BasicColors(
         black = Color(0xFF0C0C0C),
         grey1 = Color(0xFF222325),
@@ -24,7 +24,7 @@ fun darkColors() = CustomColors(
     )
 )
 
-fun lightColors() = CustomColors(
+internal val lightColors = CustomColors(
     basicColors = BasicColors(
         black = Color(0xFF0C0C0C),
         grey1 = Color(0xFF222325),

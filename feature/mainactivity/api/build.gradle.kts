@@ -4,12 +4,13 @@ plugins {
 }
 
 android {
-    namespace = "ru.my.base"
+    namespace = "ru.my.mainactivity.api"
     compileSdk = 34
 
     defaultConfig {
         minSdk = 26
 
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -35,8 +36,4 @@ dependencies {
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.activity.compose)
-
-    implementation(libs.voyager.screenmodel)
 }

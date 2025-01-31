@@ -8,7 +8,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
 @Immutable
-class CustomTypography {
+object CustomTypography {
 
     private val sfProDisplay = FontFamily(
         Font(R.font.sf_pro_display_medium, FontWeight.Medium),

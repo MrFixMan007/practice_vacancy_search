@@ -1,25 +1,19 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
 
 android {
-    namespace = "ru.my.vacancysearch"
+    namespace = "ru.my.auth.impl"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "ru.my.vacancysearch"
         minSdk = 26
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -44,39 +38,36 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtensionVersion.get()
     }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
-    }
 }
 
 dependencies {
 
     implementation(project(":core:base"))
-    implementation(project(":core:navigation"))
     implementation(project(":core:theme"))
+    implementation(project(":core:navigation"))
     implementation(project(":core:uiCommon"))
 
     implementation(project(":feature:auth:api"))
-    implementation(project(":feature:auth:impl"))
-    implementation(project(":feature:mainactivity:api"))
-    implementation(project(":feature:mainactivity:impl"))
 
-    // hilt
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.material3)
+
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.graphics)
+
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.collections.immutable)
+
+    // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
     implementation(libs.voyager.navigator)
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.ui.tooling)
-    implementation(libs.androidx.material3)
+    implementation(libs.voyager.screenmodel)
+    implementation(libs.voyager.hilt)
+    implementation(libs.voyager.transitions)
 
 }

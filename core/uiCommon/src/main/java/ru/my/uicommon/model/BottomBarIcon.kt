@@ -8,11 +8,13 @@ import androidx.compose.runtime.Immutable
 @Immutable
 sealed class BottomBarIcon {
 
+    @Immutable
     data class BottomBarIconWithContent(
         val text: String,
         val content: @Composable (BoxScope.() -> Unit)
     ) : BottomBarIcon()
 
+    @Immutable
     data class BottomBarIconWithRes(
         val text: String,
         @DrawableRes val iconRes: Int

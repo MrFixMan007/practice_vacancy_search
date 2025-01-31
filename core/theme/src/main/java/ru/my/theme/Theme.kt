@@ -28,8 +28,8 @@ fun VacancySearchTheme(
     CompositionLocalProvider {
         MaterialTheme {
             CompositionLocalProvider(
-                LocalColors provides if (darkTheme) darkColors() else lightColors(),
-                LocalTypography provides CustomTypography(),
+                LocalColors provides if (darkTheme) darkColors else lightColors,
+                LocalTypography provides CustomTypography,
                 LocalSnackbarHostState provides snackbarHostState,
             ) {
                 content()
