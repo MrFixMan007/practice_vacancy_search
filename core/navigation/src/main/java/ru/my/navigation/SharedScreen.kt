@@ -8,11 +8,13 @@ interface SharedScreen : ScreenProvider {
         val email: String,
     ) : ScreenProvider
 
-    sealed class Global : ScreenProvider {
-        data object Search : Global()
-        data object Favourite : Global()
-        data object Responses : Global()
-        data object Messages : Global()
-        data object Profile : Global()
+    object MainHost : ScreenProvider
+
+    sealed class Main : ScreenProvider {
+        data object Search : Main()
+        data object Favourite : Main()
+        data object Responses : Main()
+        data object Messages : Main()
+        data object Profile : Main()
     }
 }

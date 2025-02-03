@@ -3,7 +3,9 @@ package ru.my.uicommon.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -143,31 +145,29 @@ fun BlueShadowButton(
 
 @Composable
 @Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
-private fun EnabledButtonPreview() {
+private fun EnabledAndDisabledButtonsWithShadowPreview() {
     VacancySearchTheme {
-        BlueShadowButton(
-            modifier = Modifier
-                .fillMaxWidth(),
-            buttonHeight = 40.dp,
-            text = "Продолжить",
-            isEnabled = true,
-            onClick = {},
-        )
-    }
-}
-
-@Composable
-@Preview(backgroundColor = 0xFFFFFFFF, showBackground = true)
-private fun DisabledButtonPreview() {
-    VacancySearchTheme {
-        BlueShadowButton(
-            modifier = Modifier
-                .width(100.dp),
-            buttonHeight = 40.dp,
-            text = "Продолжить",
-            isEnabled = false,
-            onClick = {}
-        )
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(4.dp)
+        ) {
+            BlueShadowButton(
+                modifier = Modifier
+                    .width(100.dp),
+                buttonHeight = 40.dp,
+                text = "Продолжить",
+                isEnabled = true,
+                onClick = {},
+            )
+            BlueShadowButton(
+                modifier = Modifier
+                    .width(100.dp),
+                buttonHeight = 40.dp,
+                text = "Продолжить",
+                isEnabled = false,
+                onClick = {}
+            )
+        }
     }
 }
 

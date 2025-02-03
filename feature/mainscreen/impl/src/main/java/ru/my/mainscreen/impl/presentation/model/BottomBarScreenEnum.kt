@@ -1,4 +1,4 @@
-package ru.my.mainactivity.impl.presentation.model
+package ru.my.mainscreen.impl.presentation.model
 
 enum class BottomBarScreenEnum {
     Search,

@@ -10,6 +10,6 @@ class SearchFeatureImpl : SearchFeature {
 
     override val featureMainScreenModule: ScreenRegistry.() -> Unit =
         screenModule {
-            register<SharedScreen.Global.Search> { SearchScreen() }
+            register<SharedScreen.Main.Search> { SearchScreen() }
         }
 }

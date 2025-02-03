@@ -1,4 +1,4 @@
-package ru.my.mainactivity.impl.presentation.model
+package ru.my.mainscreen.impl.presentation.model
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,16 +14,16 @@ import ru.my.theme.LocalColors
 import ru.my.theme.LocalTypography
 import ru.my.uicommon.R
 
-object MessagesTab : Tab {
+object ProfileTab : Tab {
 
-    private fun readResolve(): Any = MessagesTab
+    private fun readResolve(): Any = ProfileTab
 
     override val options: TabOptions
         @Composable
         get() = TabOptions(
-            index = 3u,
-            title = stringResource(R.string.messages),
-            icon = painterResource(id = R.drawable.ic_comment)
+            index = 4u,
+            title = stringResource(R.string.profile),
+            icon = painterResource(id = R.drawable.ic_profile)
         )
 
     @Composable
@@ -33,7 +33,7 @@ object MessagesTab : Tab {
         ) {
             Text(
                 modifier = Modifier.align(Alignment.Center),
-                text = stringResource(R.string.messages),
+                text = stringResource(R.string.profile),
                 style = LocalTypography.current.title1,
                 color = LocalColors.current.basicColors.white,
             )

@@ -1,4 +1,4 @@
-package ru.my.mainactivity.impl.presentation.model
+package ru.my.mainscreen.impl.presentation.model
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
@@ -23,7 +23,7 @@ object FavouriteTab : Tab {
 
     @Composable
     override fun Content() {
-        Navigator(screen = ScreenRegistry.get(SharedScreen.Global.Favourite))
+        Navigator(screen = ScreenRegistry.get(SharedScreen.Main.Favourite))
     }
 
 }

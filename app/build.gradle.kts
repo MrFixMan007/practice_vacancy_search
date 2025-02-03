@@ -62,6 +62,8 @@ dependencies {
     implementation(project(":feature:auth:impl"))
     implementation(project(":feature:mainactivity:api"))
     implementation(project(":feature:mainactivity:impl"))
+    implementation(project(":feature:mainscreen:api"))
+    implementation(project(":feature:mainscreen:impl"))
     implementation(project(":feature:search:api"))
     implementation(project(":feature:search:impl"))
     implementation(project(":feature:favourite:api"))

@@ -10,6 +10,6 @@ class ResponsesFeatureImpl : ResponsesFeature {
 
     override val featureResponsesScreenModule: ScreenRegistry.() -> Unit =
         screenModule {
-            register<SharedScreen.Global.Responses> { ResponsesScreen() }
+            register<SharedScreen.Main.Responses> { ResponsesScreen() }
         }
 }

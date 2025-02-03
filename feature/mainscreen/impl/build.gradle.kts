@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "ru.my.mainactivity.impl"
+    namespace = "ru.my.mainscreen.impl"
     compileSdk = 34
 
     defaultConfig {
@@ -47,23 +47,27 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:uiCommon"))
 
-    implementation(project(":feature:mainactivity:api"))
+    implementation(project(":feature:mainscreen:api"))
 
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-
-    implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
-    implementation(libs.androidx.ui.tooling)
-    implementation(libs.collections.immutable)
 
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
 
-    implementation(libs.voyager.navigator)
-    implementation(libs.voyager.transitions)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui.tooling)
+    implementation(libs.collections.immutable)
 
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    implementation(libs.voyager.navigator)
+    implementation(libs.voyager.screenmodel)
+    implementation(libs.voyager.hilt)
+    implementation(libs.voyager.transitions)
+    implementation(libs.voyager.tab)
 }

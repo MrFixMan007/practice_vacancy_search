@@ -7,6 +7,8 @@ import ru.my.auth.api.domain.AuthFeature
 import ru.my.auth.impl.domain.AuthFeatureImpl
 import ru.my.favourite.api.domain.FavouriteFeature
 import ru.my.favourite.impl.domain.FavouriteFeatureImpl
+import ru.my.mainscreen.api.domain.MainScreenFeature
+import ru.my.mainscreen.impl.domain.MainScreenFeatureImpl
 import ru.my.responses.api.ResponsesFeature
 import ru.my.responses.impl.domain.ResponsesFeatureImpl
 import ru.my.search.api.domain.SearchFeature
@@ -22,12 +24,14 @@ class VacancySearchApp : Application() {
         val searchScreenFeature: SearchFeature = SearchFeatureImpl()
         val favouriteScreenFeature: FavouriteFeature = FavouriteFeatureImpl()
         val responsesScreenFeature: ResponsesFeature = ResponsesFeatureImpl()
+        val mainScreenFeature: MainScreenFeature = MainScreenFeatureImpl()
 
         ScreenRegistry {
             authScreenFeature.featureAuthScreenModule(this)
             searchScreenFeature.featureMainScreenModule(this)
             favouriteScreenFeature.featureFavouriteScreenModule(this)
             responsesScreenFeature.featureResponsesScreenModule(this)
+            mainScreenFeature.featureMainScreenModule(this)
         }
     }
 

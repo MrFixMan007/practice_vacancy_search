@@ -10,6 +10,6 @@ class FavouriteFeatureImpl : FavouriteFeature {
 
     override val featureFavouriteScreenModule: ScreenRegistry.() -> Unit =
         screenModule {
-            register<SharedScreen.Global.Favourite> { FavouriteScreen() }
+            register<SharedScreen.Main.Favourite> { FavouriteScreen() }
         }
 }

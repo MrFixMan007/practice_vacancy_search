@@ -1,4 +1,4 @@
-package ru.my.mainactivity.impl.presentation.components
+package ru.my.mainscreen.impl.presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -11,11 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import kotlinx.collections.immutable.persistentListOf
-import ru.my.mainactivity.impl.presentation.model.FavouriteTab
-import ru.my.mainactivity.impl.presentation.model.MessagesTab
-import ru.my.mainactivity.impl.presentation.model.ProfileTab
-import ru.my.mainactivity.impl.presentation.model.ResponsesTab
-import ru.my.mainactivity.impl.presentation.model.SearchTab
+import ru.my.mainscreen.impl.presentation.model.FavouriteTab
+import ru.my.mainscreen.impl.presentation.model.MessagesTab
+import ru.my.mainscreen.impl.presentation.model.ProfileTab
+import ru.my.mainscreen.impl.presentation.model.ResponsesTab
+import ru.my.mainscreen.impl.presentation.model.SearchTab
 import ru.my.theme.LocalColors
 import ru.my.theme.LocalTypography
 import ru.my.uicommon.components.BottomBar
