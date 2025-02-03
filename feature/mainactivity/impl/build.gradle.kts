@@ -45,10 +45,12 @@ dependencies {
     implementation(project(":core:base"))
     implementation(project(":core:theme"))
     implementation(project(":core:navigation"))
+    implementation(project(":core:uiCommon"))
 
     implementation(project(":feature:mainactivity:api"))
 
     implementation(libs.hilt.android)
+    implementation(libs.hilt.navigation.compose)
     ksp(libs.hilt.compiler)
 
     implementation(libs.androidx.activity.compose)
@@ -57,6 +59,7 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.material3)
     implementation(libs.androidx.ui.tooling)
+    implementation(libs.collections.immutable)
 
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
@@ -65,5 +68,6 @@ dependencies {
     implementation(libs.voyager.navigator)
     implementation(libs.voyager.screenmodel)
     implementation(libs.voyager.transitions)
+    implementation(libs.voyager.tab)
 
 }

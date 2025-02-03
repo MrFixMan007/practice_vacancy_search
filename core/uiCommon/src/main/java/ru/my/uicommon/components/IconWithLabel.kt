@@ -86,25 +86,3 @@ private fun PreviewIconWithLabel() {
         }
     }
 }
-
-@Composable
-@Preview
-private fun PreviewIconBox() {
-    VacancySearchTheme {
-        Box(
-            modifier = Modifier.size(100.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            IconWithLabel(
-                text = "Поиск",
-                modifier = Modifier.iconClickable {},
-                textColor = LocalColors.current.specialColors.blue,
-            ) {
-                HeartWithBubbleNumber(
-                    iconColor = LocalColors.current.specialColors.blue,
-                    number = 5
-                )
-            }
-        }
-    }
-}

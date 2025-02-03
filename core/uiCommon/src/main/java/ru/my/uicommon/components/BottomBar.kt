@@ -2,10 +2,12 @@ package ru.my.uicommon.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -13,8 +15,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import cafe.adriel.voyager.navigator.tab.Tab
+import cafe.adriel.voyager.navigator.tab.TabOptions
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import ru.my.theme.LocalColors
@@ -22,8 +28,6 @@ import ru.my.theme.VacancySearchTheme
 import ru.my.uicommon.R
 import ru.my.uicommon.extensions.iconClickable
 import ru.my.uicommon.model.BottomBarIcon
-import ru.my.uicommon.model.BottomBarIcon.BottomBarIconWithContent
-import ru.my.uicommon.model.BottomBarIcon.BottomBarIconWithRes
 
 @Composable
 fun BottomBar(
@@ -42,30 +46,24 @@ fun BottomBar(
         horizontalArrangement = Arrangement.SpaceAround
     ) {
         items.forEachIndexed { index, item ->
-            val isSelected = index == selectedIndex
+            val color = if (index == selectedIndex) selectedColor else unselectedColor
 
-            when (item) {
-                is BottomBarIconWithRes -> {
-                    IconWithLabel(
-                        modifier = Modifier
-                            .height(40.dp)
-                            .iconClickable { onItemSelected(index) },
-                        text = item.text,
-                        iconRes = item.iconRes,
-                        textColor = if (isSelected) selectedColor else unselectedColor,
-                        iconColor = if (isSelected) selectedColor else unselectedColor,
+            IconWithLabel(
+                modifier = Modifier
+                    .height(40.dp)
+                    .iconClickable { onItemSelected(index) },
+                text = item.tab.options.title,
+                textColor = color,
+            ) {
+                item.tab.options.icon?.let { icon ->
+                    Icon(
+                        painter = icon,
+                        contentDescription = null,
+                        tint = color
                     )
-                }
-
-                is BottomBarIconWithContent -> {
-                    IconWithLabel(
-                        modifier = Modifier
-                            .height(40.dp)
-                            .iconClickable { onItemSelected(index) },
-                        text = item.text,
-                        content = item.content,
-                        textColor = if (isSelected) selectedColor else unselectedColor,
-                    )
+                    item.additionalContent?.let { content ->
+                        Box(modifier = Modifier.matchParentSize(), content = content)
+                    }
                 }
             }
         }
@@ -76,37 +74,27 @@ fun BottomBar(
 @Preview
 private fun BottomBarPreview() {
     VacancySearchTheme {
-        var selectedIndex by remember { mutableStateOf(-1) }
+        var selectedIndex by remember { mutableStateOf(0) }
 
         val selectedColor = LocalColors.current.specialColors.blue
         val defaultColor = LocalColors.current.basicColors.grey4
 
         val items = persistentListOf(
-            BottomBarIconWithRes(
-                text = "Поиск",
-                iconRes = R.drawable.ic_search
-            ),
-            BottomBarIconWithContent(
-                text = "Избраное",
-                content = {
-                    HeartWithBubbleNumber(
-                        iconColor = if (selectedIndex == 1) selectedColor else defaultColor,
-                        number = 5
-                    )
+            BottomBarIcon(
+                tab = object : Tab {
+                    override val options: TabOptions
+                        @Composable
+                        get() = TabOptions(
+                            index = 0u,
+                            title = stringResource(R.string.responses),
+                            icon = painterResource(id = R.drawable.ic_letter)
+                        )
+
+                    @Composable
+                    override fun Content() {
+                    }
                 }
-            ),
-            BottomBarIconWithRes(
-                text = "Отклики",
-                iconRes = R.drawable.ic_letter
-            ),
-            BottomBarIconWithRes(
-                text = "Сообщения",
-                iconRes = R.drawable.ic_comment
-            ),
-            BottomBarIconWithRes(
-                text = "Профиль",
-                iconRes = R.drawable.ic_profile
-            ),
+            )
         )
 
         BottomBar(

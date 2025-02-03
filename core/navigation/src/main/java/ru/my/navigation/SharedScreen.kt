@@ -7,4 +7,12 @@ interface SharedScreen : ScreenProvider {
     data class CodeInput(
         val email: String,
     ) : ScreenProvider
+
+    sealed class Global : ScreenProvider {
+        data object Search : Global()
+        data object Favourite : Global()
+        data object Responses : Global()
+        data object Messages : Global()
+        data object Profile : Global()
+    }
 }

@@ -62,6 +62,12 @@ dependencies {
     implementation(project(":feature:auth:impl"))
     implementation(project(":feature:mainactivity:api"))
     implementation(project(":feature:mainactivity:impl"))
+    implementation(project(":feature:search:api"))
+    implementation(project(":feature:search:impl"))
+    implementation(project(":feature:favourite:api"))
+    implementation(project(":feature:favourite:impl"))
+    implementation(project(":feature:responses:api"))
+    implementation(project(":feature:responses:impl"))
 
     // hilt
     implementation(libs.hilt.android)
