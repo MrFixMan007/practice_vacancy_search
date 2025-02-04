@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "ru.my.auth.impl"
+    namespace = "ru.my.base.impl"
     compileSdk = 34
 
     defaultConfig {
@@ -43,31 +43,14 @@ android {
 dependencies {
 
     implementation(project(":core:base:api"))
-    implementation(project(":core:theme"))
-    implementation(project(":core:navigation"))
-    implementation(project(":core:uiCommon"))
-
-    implementation(project(":feature:auth:api"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.material3)
-
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.ui.tooling)
-    implementation(libs.collections.immutable)
 
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-
-    implementation(libs.voyager.navigator)
-    implementation(libs.voyager.screenmodel)
-    implementation(libs.voyager.hilt)
-    implementation(libs.voyager.transitions)
-
 }

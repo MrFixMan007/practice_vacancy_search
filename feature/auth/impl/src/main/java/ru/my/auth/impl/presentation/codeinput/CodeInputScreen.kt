@@ -1,6 +1,7 @@
 package ru.my.auth.impl.presentation.codeinput
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -22,6 +23,19 @@ internal class CodeInputScreen(
         val screenModel = getScreenModel<CodeInputScreenModel>()
         val state by screenModel.state.collectAsState()
 
+        LaunchedEffect(Unit) {
+            screenModel.init(email)
+
+            screenModel.effect.collect { sideEffect ->
+                when (sideEffect) {
+                    is CodeInputScreenSideEffect.Login -> {
+                        val screen = ScreenRegistry.get(SharedScreen.MainHost)
+                        navigator.replaceAll(screen)
+                    }
+                }
+            }
+        }
+
         CodeInputScreenContent(
             email = email,
             code = state.code,
@@ -29,11 +43,10 @@ internal class CodeInputScreen(
             isContinueButtonEnabled = state.isContinueButtonEnabled,
             onContinueClick = remember {
                 {
-                    val screen = ScreenRegistry.get(SharedScreen.MainHost)
-                    navigator.replaceAll(screen)
+                    screenModel.login()
                 }
             },
-            onPinChange = remember { { index, s -> screenModel.setCodeSymbol(index, s) } },
+            onPinChange = remember { { _, s -> screenModel.setCodeSymbol(s) } },
             focusRequester = state.focusRequester,
         )
     }

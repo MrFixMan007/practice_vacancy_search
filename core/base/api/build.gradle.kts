@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "ru.my.base"
+    namespace = "ru.my.base.api"
     compileSdk = 34
 
     defaultConfig {

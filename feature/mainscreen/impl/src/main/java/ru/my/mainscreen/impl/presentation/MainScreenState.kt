@@ -1,7 +1,7 @@
 package ru.my.mainscreen.impl.presentation
 
 import androidx.compose.runtime.Immutable
-import ru.my.base.screenmodel.model.UIState
+import ru.my.base.api.screenmodel.model.UIState
 
 @Immutable
 data class MainScreenState(

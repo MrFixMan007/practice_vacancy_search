@@ -1,7 +1,7 @@
 package ru.my.mainscreen.impl.presentation
 
 import cafe.adriel.voyager.navigator.tab.Tab
-import ru.my.base.screenmodel.BaseScreenModel
+import ru.my.base.api.screenmodel.BaseScreenModel
 import ru.my.mainscreen.impl.presentation.model.BottomBarScreenEnum
 import ru.my.mainscreen.impl.presentation.model.FavouriteTab
 import ru.my.mainscreen.impl.presentation.model.MessagesTab

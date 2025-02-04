@@ -25,6 +25,11 @@ import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.input.key.Key
+import androidx.compose.ui.input.key.KeyEventType
+import androidx.compose.ui.input.key.key
+import androidx.compose.ui.input.key.onKeyEvent
+import androidx.compose.ui.input.key.type
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -87,10 +92,16 @@ fun CodeInputScreenContent(
                         modifier = Modifier
                             .align(Alignment.Center)
                             .focusRequester(focusRequester[index])
-                            .width(18.dp),
+                            .width(18.dp)
+                            .onKeyEvent { event ->
+                                if (event.key == Key.Backspace && event.type == KeyEventType.KeyUp) {
+                                    onPinChange(index, "")
+                                    true
+                                } else false
+                            },
                         value = value,
                         onValueChange = { newValue ->
-                            onPinChange(index, newValue)
+                            if (newValue.isNotEmpty()) onPinChange(index, newValue)
                         },
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         maxLines = 1,

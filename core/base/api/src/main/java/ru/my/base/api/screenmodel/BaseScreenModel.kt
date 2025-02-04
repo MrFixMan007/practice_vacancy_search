@@ -1,4 +1,4 @@
-package ru.my.base.screenmodel
+package ru.my.base.api.screenmodel
 
 import cafe.adriel.voyager.core.model.ScreenModel
 import cafe.adriel.voyager.core.model.screenModelScope
@@ -9,8 +9,8 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import ru.my.base.screenmodel.model.UIEffect
-import ru.my.base.screenmodel.model.UIState
+import ru.my.base.api.screenmodel.model.UIEffect
+import ru.my.base.api.screenmodel.model.UIState
 
 abstract class BaseScreenModel<State : UIState, Effect : UIEffect>(
     initialState: State,

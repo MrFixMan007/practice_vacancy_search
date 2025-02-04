@@ -44,7 +44,7 @@ internal fun AuthScreenContent(
         Text(
             modifier = Modifier
                 .align(Alignment.TopStart)
-                .padding(start = 16.dp, top = 32.dp, end = 16.dp, bottom = 0.dp),
+                .padding(start = 16.dp, top = 32.dp, end = 16.dp),
             text = stringResource(R.string.login_to_account),
             style = LocalTypography.current.title2,
             color = LocalColors.current.basicColors.white,

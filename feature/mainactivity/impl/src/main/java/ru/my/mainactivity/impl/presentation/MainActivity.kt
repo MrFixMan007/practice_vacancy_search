@@ -9,6 +9,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -18,12 +19,17 @@ import cafe.adriel.voyager.navigator.Navigator
 import cafe.adriel.voyager.navigator.NavigatorDisposeBehavior
 import cafe.adriel.voyager.transitions.FadeTransition
 import dagger.hilt.android.AndroidEntryPoint
+import ru.my.base.api.domain.storage.Authenticator
 import ru.my.navigation.SharedScreen
 import ru.my.theme.LocalColors
 import ru.my.theme.VacancySearchTheme
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var authenticator: Authenticator
 
     @OptIn(ExperimentalVoyagerApi::class)
     @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -41,9 +47,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier
                         .fillMaxSize()
                         .navigationBarsPadding()
+                        .statusBarsPadding()
                         .background(LocalColors.current.basicColors.black),
                 ) {
-                    val startScreen = if (false) { //TODO: shared pref for email
+                    val startScreen = if (authenticator.isAuth()) {
                         SharedScreen.MainHost
                     } else {
                         SharedScreen.Auth

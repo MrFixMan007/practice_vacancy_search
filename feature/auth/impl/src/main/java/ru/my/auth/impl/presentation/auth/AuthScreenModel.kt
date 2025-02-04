@@ -1,6 +1,6 @@
 package ru.my.auth.impl.presentation.auth
 
-import ru.my.base.screenmodel.BaseScreenModel
+import ru.my.base.api.screenmodel.BaseScreenModel
 import javax.inject.Inject
 
 class AuthScreenModel @Inject constructor(
