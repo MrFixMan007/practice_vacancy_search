@@ -5,4 +5,28 @@
     <string name="responses">Отклики</string>
     <string name="messages">Сообщения</string>
     <string name="profile">Профиль</string>
+    <string name="respond">Откликнуться</string>
+
+    <string name="mans1">человека</string>
+    <string name="mans2">человек</string>
+
+    <string name="vacancies1">вакансия</string>
+    <string name="vacancies2">вакансии</string>
+    <string name="vacancies5">вакансий</string>
+
+    <string name="looking_people_count">Сейчас просматривает %1$s %2$s</string>
+    <string name="published_date">Опубликовано %1$s</string>
+
+    <string name="january">Январь</string>
+    <string name="february">Февраль</string>
+    <string name="march">Март</string>
+    <string name="april">Апрель</string>
+    <string name="may">Май</string>
+    <string name="june">Июнь</string>
+    <string name="july">Июль</string>
+    <string name="august">Август</string>
+    <string name="september">Сентябрь</string>
+    <string name="october">Октябрь</string>
+    <string name="november">Ноябрь</string>
+    <string name="december">Декабрь</string>
 </resources>

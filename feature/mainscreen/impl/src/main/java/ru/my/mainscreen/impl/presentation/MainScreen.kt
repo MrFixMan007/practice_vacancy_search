@@ -24,7 +24,6 @@ import cafe.adriel.voyager.navigator.tab.LocalTabNavigator
 import cafe.adriel.voyager.navigator.tab.TabNavigator
 import ru.my.mainscreen.impl.presentation.components.MyBottomBar
 import ru.my.mainscreen.impl.presentation.model.SearchTab
-import ru.my.theme.LocalColors
 import ru.my.theme.LocalSnackbarHostState
 
 class MainScreen : Screen {
@@ -39,7 +38,7 @@ class MainScreen : Screen {
         TabNavigator(SearchTab) {
             Scaffold(
                 modifier = Modifier.fillMaxSize(),
-                containerColor = LocalColors.current.basicColors.black,
+                containerColor = Color.Transparent,
                 snackbarHost = {
                     SnackbarHost(
                         modifier = Modifier

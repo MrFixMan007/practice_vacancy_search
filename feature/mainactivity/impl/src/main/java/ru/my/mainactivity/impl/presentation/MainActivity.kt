@@ -45,10 +45,10 @@ class MainActivity : ComponentActivity() {
             ) {
                 Box(
                     modifier = Modifier
+                        .background(LocalColors.current.basicColors.black)
                         .fillMaxSize()
                         .navigationBarsPadding()
-                        .statusBarsPadding()
-                        .background(LocalColors.current.basicColors.black),
+                        .statusBarsPadding(),
                 ) {
                     val startScreen = if (authenticator.isAuth()) {
                         SharedScreen.MainHost
