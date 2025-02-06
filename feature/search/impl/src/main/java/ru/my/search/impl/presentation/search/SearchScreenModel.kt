@@ -1,4 +1,4 @@
-package ru.my.search.impl.presentation
+package ru.my.search.impl.presentation.search
 
 import kotlinx.collections.immutable.toImmutableList
 import ru.my.base.api.screenmodel.BaseScreenModel

@@ -1,4 +1,4 @@
-package ru.my.search.impl.presentation.components
+package ru.my.search.impl.presentation.search.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -68,6 +68,7 @@ fun SearchScreenContent(
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        containerColor = Color.Transparent,
         topBar = {
             Row(
                 modifier = Modifier
@@ -160,7 +161,6 @@ fun SearchScreenContent(
                 }
             }
         },
-        containerColor = Color.Transparent,
     ) { paddingValues ->
         LazyColumn(
             state = listState,

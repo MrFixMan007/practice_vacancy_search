@@ -6,4 +6,16 @@
     <string name="search_tip">Должность, ключевые слова</string>
     <string name="map">Карта</string>
     <string name="by_correspondence">По соответствию</string>
+
+    <string name="your_job">Ваши задачи</string>
+    <string name="ask_question">Задайте вопрос работодателю</string>
+    <string name="ask_question_tip">Он получит его с откликом на вакансию</string>
+
+    <string name="question_address">Где распологается место работы?</string>
+    <string name="question_timeline">Какой график работы?</string>
+    <string name="question_vacancy_status">Вакансия открыта?</string>
+    <string name="question_salary">Какая оплата труда?</string>
+
+    <string name="people_responded_count">%1$s уже откликнулись</string>
+    <string name="people_watching_count">%1$s сейчас смотрят</string>
 </resources>

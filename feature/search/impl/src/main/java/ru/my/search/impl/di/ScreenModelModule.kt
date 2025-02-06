@@ -7,7 +7,8 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.multibindings.IntoMap
-import ru.my.search.impl.presentation.SearchScreenModel
+import ru.my.search.impl.presentation.detail.DetailScreenModel
+import ru.my.search.impl.presentation.search.SearchScreenModel
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -17,4 +18,9 @@ abstract class ScreenModelModule {
     @IntoMap
     @ScreenModelKey(SearchScreenModel::class)
     abstract fun bindSearchScreenModel(searchScreenModel: SearchScreenModel): ScreenModel
+
+    @Binds
+    @IntoMap
+    @ScreenModelKey(DetailScreenModel::class)
+    abstract fun bindDetailScreenModel(detailScreenModel: DetailScreenModel): ScreenModel
 }

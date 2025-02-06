@@ -1,4 +1,4 @@
-package ru.my.search.impl.presentation
+package ru.my.search.impl.presentation.search
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -6,6 +6,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import cafe.adriel.voyager.core.annotation.InternalVoyagerApi
+import cafe.adriel.voyager.core.registry.ScreenRegistry
 import cafe.adriel.voyager.core.screen.Screen
 import cafe.adriel.voyager.hilt.getScreenModel
 import cafe.adriel.voyager.navigator.LocalNavigator
@@ -13,7 +14,8 @@ import cafe.adriel.voyager.navigator.currentOrThrow
 import cafe.adriel.voyager.navigator.internal.BackHandler
 import kotlinx.coroutines.Job
 import ru.my.base.api.extensions.singleAction
-import ru.my.search.impl.presentation.components.SearchScreenContent
+import ru.my.navigation.SharedScreen
+import ru.my.search.impl.presentation.search.components.SearchScreenContent
 
 class SearchScreen : Screen {
 
@@ -44,7 +46,12 @@ class SearchScreen : Screen {
                 }
             },
             onVacancyRespondClick = {},
-            onVacancyBlockClick = {},
+            onVacancyBlockClick = remember {
+                {
+                    val screen = ScreenRegistry.get(SharedScreen.DetailVacancy)
+                    navigator.push(screen)
+                }
+            },
             onMapClick = {},
             onByCorrespondenceClick = {},
         )

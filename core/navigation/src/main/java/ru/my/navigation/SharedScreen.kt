@@ -9,6 +9,7 @@ interface SharedScreen : ScreenProvider {
     ) : ScreenProvider
 
     object MainHost : ScreenProvider
+    object DetailVacancy : ScreenProvider
 
     sealed class Main : ScreenProvider {
         data object Search : Main()

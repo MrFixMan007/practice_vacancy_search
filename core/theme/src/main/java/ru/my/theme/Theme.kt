@@ -29,14 +29,16 @@ fun VacancySearchTheme(
     content: @Composable () -> Unit
 ) {
     val view = LocalView.current
-    SideEffect {
-        val window = (view.context as Activity).window
-        if (lightTheme) {
-            window.navigationBarColor = android.graphics.Color.WHITE
-            window.statusBarColor = android.graphics.Color.WHITE
-        } else {
-            window.navigationBarColor = android.graphics.Color.TRANSPARENT
-            window.statusBarColor = android.graphics.Color.TRANSPARENT
+    if (!view.isInEditMode) {
+        SideEffect {
+            val window = (view.context as Activity).window
+            if (lightTheme) {
+                window.navigationBarColor = android.graphics.Color.WHITE
+                window.statusBarColor = android.graphics.Color.WHITE
+            } else {
+                window.navigationBarColor = android.graphics.Color.TRANSPARENT
+                window.statusBarColor = android.graphics.Color.TRANSPARENT
+            }
         }
     }
 

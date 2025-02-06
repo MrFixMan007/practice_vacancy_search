@@ -1,4 +1,4 @@
-package ru.my.search.impl.presentation
+package ru.my.search.impl.presentation.search
 
 import androidx.compose.runtime.Immutable
 import kotlinx.collections.immutable.ImmutableList
