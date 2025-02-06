@@ -37,7 +37,7 @@ import kotlinx.collections.immutable.persistentListOf
 import ru.my.search.impl.R
 import ru.my.search.impl.domain.model.Recommendation
 import ru.my.search.impl.domain.model.RecommendationType
-import ru.my.search.impl.domain.model.Vacancy
+import ru.my.search.impl.domain.model.VacancyShort
 import ru.my.theme.LocalColors
 import ru.my.theme.LocalTypography
 import ru.my.theme.VacancySearchTheme
@@ -48,7 +48,7 @@ import ru.my.uicommon.extensions.vacancyPluralString
 
 @Composable
 fun SearchScreenContent(
-    vacancies: ImmutableList<Vacancy>,
+    vacancies: ImmutableList<VacancyShort>,
     recommendations: ImmutableList<Recommendation>,
     isShowingAll: Boolean,
     onMoreVacanciesClick: () -> Unit,

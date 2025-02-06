@@ -3,7 +3,8 @@ package ru.my.search.impl.domain.model
 import androidx.compose.runtime.Immutable
 
 @Immutable
-data class Vacancy(
+data class VacancyShort(
+    val id: Int,
     val title: String,
     val addressTown: String,
     val company: String,

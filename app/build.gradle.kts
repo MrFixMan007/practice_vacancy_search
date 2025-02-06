@@ -72,6 +72,8 @@ dependencies {
     implementation(project(":feature:responses:api"))
     implementation(project(":feature:responses:impl"))
 
+    implementation(project(":room"))
+
     // hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
