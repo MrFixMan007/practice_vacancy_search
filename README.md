@@ -1,5 +1,5 @@
 # Приложение по типу "поиска вакансий"
-Проект многомодульный. Compose, Hilt, MVVM, Clean Architecture, Room
+Проект многомодульный. Compose, Hilt, MVVM, Clean Architecture, Room, Coroutines/Flow. Написал свой BaseViewModel (BaseScreenModel)
 
 https://github.com/user-attachments/assets/7d072b1a-1fca-4011-afd2-aa7cf9c6b28f
 
